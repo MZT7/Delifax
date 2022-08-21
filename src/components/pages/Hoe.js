@@ -1,5 +1,5 @@
-import Button from "../ads/Button";
-import Bg from "../img/deli.jpg";
+// import Button from "../ads/Button";
+// import Bg from "../img/deli.jpg";
 // import React from "react";
 // import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
@@ -20,7 +20,7 @@ function Home() {
 
   useEffect(() => {
     const Taskall = async () => {
-      const info = await axios.get("api/task").then((res) => {
+      await axios.get("api/task").then((res) => {
         const tasks = res.data;
         setDatas(tasks);
         // console.log(JSON.parse(JSON.stringify(tasks)));
@@ -55,14 +55,14 @@ function Home() {
 
     if (!edit) {
       try {
-        const response = await axios.post("api/task", { name: input });
+        await axios.post("api/task", { name: input });
         // console.log(response.data);
       } catch (error) {}
       setInput("");
       return console.log(input);
     } else {
       try {
-        const response = await axios.put(`api/task/${edit.id}`, {
+        await axios.put(`api/task/${edit.id}`, {
           name: input,
         });
         // console.log(response.data);
@@ -89,7 +89,7 @@ function Home() {
 
     try {
       if (id) {
-        const response = await axios.delete(`api/delete/${id}`);
+        await axios.delete(`api/delete/${id}`);
       }
       setLoaded(true);
     } catch (error) {}
