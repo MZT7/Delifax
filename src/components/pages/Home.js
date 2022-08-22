@@ -31,7 +31,7 @@ const Home = () => {
           <h1 className="my-4 text-3xl font-bold leading-tight text-center text-purple-800 capitalize md:text-5xl slide-in-bottom-h1">
             Looking for the fastest and most convenient logistics around you?
           </h1>
-          <p className="mb-8 text-base leading-normal text-center md:text-2xl slide-in-bottom-subtitle">
+          <p className="self-center mb-8 text-base leading-normal text-center md:text-2xl slide-in-bottom-subtitle">
             Let's get your logistics moving in 4 clicks
           </p>
 
