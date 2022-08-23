@@ -210,7 +210,7 @@ function Header() {
 
         <div
           className={`sm:hidden bg-gray-900 duration-500 ${
-            !show2 ? "-translate-x-full" : "translate-x-0"
+            !show2 ? "-translate-x-full hidden" : "translate-x-0 block"
           } ease-in-out duration-500`}
           id="mobile-menu"
         >

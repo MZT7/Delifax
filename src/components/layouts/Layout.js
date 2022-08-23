@@ -7,7 +7,7 @@ function Layout(props) {
     <div className="min-h-screen bg-gray-200">
       <Header />
       {/* <Sidebar /> */}
-      <main className="container min-h-screen px-4 mx-auto overflow-hidden">
+      <main className="container min-h-screen px-4 pt-40 mx-auto overflow-hidden sm:pt-0">
         {/* <Sidebar /> */}
         {props.children}
       </main>
