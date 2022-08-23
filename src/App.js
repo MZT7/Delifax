@@ -10,26 +10,29 @@ import Profile from "./components/pages/Profile";
 import Choice from "./components/pages/Choice";
 import SignupIn from "./components/pages/SignupIn";
 import SignupOrg from "./components/pages/SignupOrg";
+import ScrollToTop from "./components/hooks/ScrollToTop";
 
 function App() {
   return (
     <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        {/* Protected Routes */}
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/about" element={<About />} />
-          <Route path="/track" element={<Track />} />
-          <Route path="/profile" element={<Profile />} />
-        </Route>
-        {/* Protected Routes */}
-        <Route path="/choice" element={<Choice />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/signupin" element={<SignupIn />} />
-        <Route path="/signuporg" element={<SignupOrg />} />
-      </Routes>
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/about" element={<About />} />
+            <Route path="/track" element={<Track />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          {/* Protected Routes */}
+          <Route path="/choice" element={<Choice />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/signupin" element={<SignupIn />} />
+          <Route path="/signuporg" element={<SignupOrg />} />
+        </Routes>
+      </ScrollToTop>
     </Layout>
   );
 }

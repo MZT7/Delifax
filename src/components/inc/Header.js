@@ -24,7 +24,7 @@ function Header() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-20 ">
-      <div className="px-2 mx-auto bg-gray-800 sm:px-6 lg:px-8 ">
+      <div className="px-2 mx-auto bg-gray-800 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 ">
           <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
             <div className="flex items-center flex-shrink-0">
@@ -210,7 +210,7 @@ function Header() {
 
         <div
           className={`sm:hidden bg-gray-900 duration-500 ${
-            !show2 ? "-translate-x-full hidden" : "translate-x-0 block"
+            !show2 ? "-translate-x-full hidden" : "translate-x-0"
           } ease-in-out duration-500`}
           id="mobile-menu"
         >
