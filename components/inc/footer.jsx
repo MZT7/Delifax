@@ -62,7 +62,7 @@ const footer = () => {
           <div className="flex flex-col justify-between w-full h-80 ">
             <div className="flex flex-col items-center space-y-4 md:items-start ">
               <h1>DOWNLOAD AUGEO FREE APP</h1>
-              <div className="flex flex-col space-y-2 lg:space-x-4 lg:flex-row">
+              <div className="flex flex-col space-y-2 lg:space-y-0 lg:space-x-4 lg:flex-row">
                 <Image
                   src={apple}
                   width={150}
