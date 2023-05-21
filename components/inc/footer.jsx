@@ -5,8 +5,8 @@ import instagram from "../images/instagram.png";
 import twitter from "../images/twitter.png";
 import facebook from "../images/facebook-f.png";
 import youtube from "../images/youtube.png";
-import google from "../images/Frame 208.png";
-import apple from "../images/Frame 209.png";
+import google from "../images/googleplay.png";
+import apple from "../images/applestore.png";
 import copyright from "../images/copyright.png";
 
 const footer = () => {
