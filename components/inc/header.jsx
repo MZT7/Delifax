@@ -5,7 +5,7 @@ import logo from "../images/DelifaxLogo.png";
 const header = () => {
   return (
     <>
-      <div className="text-black bg-gray-50 h-[80px] fixed inset-0 w-full shadow-lg shadow-gray-200">
+      <div className="text-black bg-gray-50 h-[80px] fixed inset-0 w-full shadow-lg shadow-gray-200 px-2 xl:px-0">
         <div className="flex items-center justify-between h-full mx-auto max-w-7xl">
           <div className="flex items-center justify-center">
             <Image

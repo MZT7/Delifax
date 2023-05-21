@@ -12,9 +12,9 @@ import copyright from "../images/copyright.png";
 const footer = () => {
   return (
     <>
-      <div className="h-[471px] bg-black text-white ">
-        <div className="grid items-center justify-center h-full grid-cols-3 mx-auto max-w-7xl">
-          <div className="flex flex-col space-y-5 h-80">
+      <div className="w-full text-white bg-black ">
+        <div className="grid items-center min-h-[471px] md:min-h-full bg-black justify-center h-full grid-cols-1 md:py-10 px-2 xl:px-0 py-5 mx-auto md:grid-cols-3 md:max-w-7xl w-full">
+          <div className="flex flex-col items-center space-y-5 h-60 md:items-start md:h-80">
             <Image
               src={logo}
               width={250}
@@ -51,7 +51,7 @@ const footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col space-y-6 h-80 ">
+          <div className="flex flex-col items-center space-y-6 h-60 md:items-start md:h-80 ">
             <h1 className="font-bold text-[20px]">Important Links</h1>
             <div className="text-[14px] flex flex-col space-y-4 ">
               <h3>About Us</h3>
@@ -60,9 +60,9 @@ const footer = () => {
             </div>
           </div>
           <div className="flex flex-col justify-between w-full h-80 ">
-            <div className="flex flex-col space-y-4 ">
+            <div className="flex flex-col items-center space-y-4 md:items-start ">
               <h1>DOWNLOAD AUGEO FREE APP</h1>
-              <div className="flex space-x-4">
+              <div className="flex flex-col space-y-2 lg:space-x-4 lg:flex-row">
                 <Image
                   src={apple}
                   width={150}
