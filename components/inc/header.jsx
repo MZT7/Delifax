@@ -13,6 +13,8 @@ const header = () => {
               width={100}
               // height={500}
               alt="Picture of the author"
+              priority={true}
+              placeholder="logo"
             />
           </div>
           <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">

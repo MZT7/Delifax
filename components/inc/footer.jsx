@@ -67,13 +67,15 @@ const footer = () => {
                   src={apple}
                   width={150}
                   // height={500}
-                  alt="youtube"
+                  alt="apple"
+                  placeholder="apple"
                 />
                 <Image
                   src={google}
                   width={150}
                   // height={500}
-                  alt="youtube"
+                  alt="google"
+                  placeholder="google"
                 />
               </div>
             </div>
