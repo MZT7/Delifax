@@ -19,6 +19,7 @@ const footer = () => {
               src={logo}
               width={250}
               // height={500}
+              priority
               alt="Delifax logo"
             />
             <div className="flex flex-col space-y-5">
@@ -61,21 +62,23 @@ const footer = () => {
           </div>
           <div className="flex flex-col justify-between w-full h-80 ">
             <div className="flex flex-col items-center space-y-4 md:items-start ">
-              <h1>DOWNLOAD AUGEO FREE APP</h1>
-              <div className="flex flex-col space-y-2 lg:space-y-0 lg:space-x-4 lg:flex-row">
+              <h1>DOWNLOAD DELIFAX FREE APP</h1>
+              <div className="flex flex-col items-center w-full h-full space-y-2 lg:space-y-0 lg:space-x-4 lg:flex-row">
                 <Image
                   src={apple}
-                  width={150}
-                  // height={500}
+                  width={0}
+                  height={0}
                   alt="apple"
                   placeholder="apple"
+                  className="object-fill w-48 h-full"
                 />
                 <Image
                   src={google}
-                  width={150}
-                  // height={500}
+                  width={0}
+                  height={0}
                   alt="google"
                   placeholder="google"
+                  className="object-fill w-48 h-full"
                 />
               </div>
             </div>

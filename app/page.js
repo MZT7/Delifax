@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -13,9 +13,11 @@ export default function Home() {
           </p>
         </div>
         <div className="flex space-x-4 ">
-          <button className="font-bold text-base rounded-sm bg-[#0657B5] text-white py-3 px-16">
-            Get Started
-          </button>
+          <Link href={`/register`}>
+            <button className="font-bold text-base rounded-sm bg-[#0657B5] text-white py-3 px-16">
+              Get Started
+            </button>
+          </Link>
           <button className="font-bold text-base text-[#0657B5] border-2 rounded-sm py-3 px-4 border-[#0657B5]">
             4 Click Express Delivery
           </button>
