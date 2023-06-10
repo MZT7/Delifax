@@ -9,15 +9,13 @@ module.exports = {
     extend: {
       backgroundImage: {
         "hero-pattern": "url('/components/images/banner.png')",
-
+        "hero-text":
+          "linear-gradient(90.79deg, #D11F1F -6.47%, rgba(0, 10, 255, 0.51) 132.16%)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      colors: {
-        "hero-text":
-          "linear-gradient(90.79deg, #D11F1F -6.47%, rgba(0, 10, 255, 0.51) 132.16%)",
-      },
+      colors: {},
     },
   },
   plugins: [],

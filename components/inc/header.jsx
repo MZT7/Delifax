@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import logo from "../images/DelifaxLogo.png";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const header = () => {
+const Header = () => {
+  const route = usePathname();
   return (
     <>
       <div className="text-black bg-gray-50 h-[80px] fixed inset-0 w-full shadow-lg shadow-gray-200 px-2 xl:px-0">
@@ -20,15 +23,28 @@ const header = () => {
               />
             </Link>
           </div>
-          <Link href={`/register`}>
+          {route == "/login" ? (
+            <Link href={`/register`}>
+              <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
+                Register
+              </h1>
+            </Link>
+          ) : (
+            <Link href={`/login`}>
+              <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
+                Login
+              </h1>
+            </Link>
+          )}
+          {/* <Link href={`/login`}>
             <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
-              Get Started
+              Login
             </h1>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </>
   );
 };
 
-export default header;
+export default Header;

@@ -2,14 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 // import banner from "../components/images/banner.png";
 export default function Home() {
+  // const style={
+  //   color:
+  // }
   return (
     <div className="w-full lg:bg-[url('../components/images/banner.png')] bg-none h-full bg-cover bg-right lg:bg-center bg-no-repeat ">
       {/* <Image/> */}
       <main className="flex flex-col items-start justify-center min-h-screen px-2 mx-auto space-y-16 font-sans max-w-7xl xl:px-0">
-        <div className="flex flex-col space-y-4 sm:w-1/2 ">
+        <div className="flex flex-col space-y-4 md:w-1/2 w-[85%] ">
           <h1 className="text-5xl font-bold ">
             We deliver your Goods&nbsp;
-            <span className="text-transparent from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text">
+            <span className="text-transparent bg-hero-text bg-clip-text">
               faster
             </span>
           </h1>
