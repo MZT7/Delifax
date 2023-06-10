@@ -20,9 +20,11 @@ const header = () => {
               />
             </Link>
           </div>
-          <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
-            Get Started
-          </h1>
+          <Link href={`/register`}>
+            <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
+              Get Started
+            </h1>
+          </Link>
         </div>
       </div>
     </>

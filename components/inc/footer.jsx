@@ -63,7 +63,7 @@ const footer = () => {
           <div className="flex flex-col justify-between w-full h-80 ">
             <div className="flex flex-col items-center space-y-4 md:items-start ">
               <h1>DOWNLOAD DELIFAX FREE APP</h1>
-              <div className="flex flex-col items-center w-full h-full space-y-2 lg:space-y-0 lg:space-x-4 lg:flex-row">
+              <div className="flex flex-col items-center w-full h-full space-y-2 xl:space-y-0 xl:space-x-4 xl:flex-row">
                 <Image
                   src={apple}
                   width={0}
