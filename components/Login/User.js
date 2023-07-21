@@ -41,7 +41,7 @@ const User = ({ register, errors, handleSubmit, onsubmit }) => {
       </div>
 
       <Link
-        href={"/forgot-password"}
+        href={"guest/forgot-password"}
         className="self-end text-[#0657B5] text-sm"
       >
         Forgot Password?

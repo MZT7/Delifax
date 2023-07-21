@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import Label from "../../components/Ads/Label";
-import Input from "../../components/Ads/Input";
+import Label from "../../../components/Ads/Label";
+import Input from "../../../components/Ads/Input";
 import Image from "next/image";
-import identity from "../../components/images/ID.png";
-import Aright from "../../components/images/arrowright.png";
+import identity from "../../../components/images/ID.png";
+import Aright from "../../../components/images/arrowright.png";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 const ForgotPassword = () => {
@@ -26,7 +26,7 @@ const ForgotPassword = () => {
         <h4 className="text-center text-[#0657B5]">
           Password reset link will be sent to your email address, know your
           password?
-          <Link className="" href={`/login`}>
+          <Link className="" href={`guest/login`}>
             Login here
           </Link>
         </h4>

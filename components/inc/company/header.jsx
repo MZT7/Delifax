@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import logo from "../images/DelifaxLogo.png";
+import logo from "../../images/DelifaxLogo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

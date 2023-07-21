@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import Label from "../../components/Ads/Label";
-import Input from "../../components/Ads/Input";
+import Label from "../../../components/Ads/Label";
+import Input from "../../../components/Ads/Input";
 import Image from "next/image";
-import identity from "../../components/images/ID.png";
-import Aright from "../../components/images/arrowright.png";
+import identity from "../../../components/images/ID.png";
+import Aright from "../../../components/images/arrowright.png";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 

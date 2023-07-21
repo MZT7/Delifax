@@ -17,10 +17,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className} suppressHydrationWarning={true}>
-        <Header />
-        <main className={` bg-[#FFFFFF] `}>{children}</main>
-        <Footer />
+      <body className={"font-[Montserrat]"} suppressHydrationWarning={true}>
+        <main className={`  `}>{children}</main>
       </body>
     </html>
   );
