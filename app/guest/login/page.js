@@ -1,13 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Company from "../../../components/Login/Company";
 import User from "../../../components/Login/User";
 import Link from "next/link";
+import { useAuth } from "@/globalStore/store";
+import { useRouter } from "next/navigation";
+import Alert from "@/components/Ads/alert";
+// import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const [user, setUser] = useState(true);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const { login, auth, setAuth } = useAuth();
+  const [data, setData] = useState({});
+  const router = useRouter();
 
   const {
     register,
@@ -15,9 +25,13 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  //  useEffect(() => {
+  // useEffect(() => {
+  //   toast({ type: "info", message: "Hello world!" });
+  // }, []);
 
-  //  }, []);
+  useEffect(() => {
+    setError("");
+  }, []);
 
   //  const handleFile = (e) => {
   //    const name = e.target.id;
@@ -31,9 +45,43 @@ const Login = () => {
   // //    console.log(imgName);
   //  };
 
-  const onsubmit = (e) => {
-    console.log(e);
-    alert(JSON.stringify(e));
+  const onsubmit = async (e) => {
+    // console.log(e);
+    if (e.email_address && e.password) {
+      try {
+        const response = await fetch("https://dummyjson.com/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: "kminchell",
+            password: "0lelplR",
+            // expiresInMins: 60, // optional
+          }),
+        });
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+
+        const jsonData = await response.json();
+
+        setAuth(jsonData);
+        router.push("auth/company/home");
+      } catch (err) {
+        // console.error("Error fetching data:", err.message);
+        if (err.message == 400) {
+          setError("Missing Username or Password");
+          Alert(error, "error");
+          console.log("error", error);
+        } else if (err.message == 401) {
+          setError("Unauthorized");
+          Alert(error, "error");
+        } else {
+          setError("Network error");
+          Alert(error, "error");
+        }
+      }
+      // console.log("error", error);
+    }
   };
 
   return (
