@@ -10,6 +10,8 @@ import Image from "next/image";
 import identity from "../../../components/images/ID.png";
 import Aright from "../../../components/images/arrowright.png";
 import Link from "next/link";
+import { onRegister } from "@/router/api/auth";
+
 const Register = () => {
   //   const onSubmit = (e) => {};
 
@@ -38,9 +40,27 @@ const Register = () => {
     console.log(imgName);
   };
 
-  const onsubmit = (e) => {
-    console.log(e);
-    alert(JSON.stringify(e));
+  const onsubmit = async (e) => {
+    if (Object.keys(e).length !== 0) {
+      const formData = new FormData();
+      formData.append("CompanyName", e.company_name);
+      formData.append("CompanyAddress", e.company_address);
+      formData.append("OwnerName", e.name);
+      formData.append("OwnerPhone", e.phone_number);
+      formData.append("IdVerification", e.id_verification);
+      formData.append("CACDocument", e.cac_document);
+      formData.append("Agreement", e.policy);
+
+      // console.log(Object.fromEntries(formData));
+      // console.log(e);
+      const response = onRegister(formData);
+      console.log("res", response);
+      if (response.ok) {
+        router.push("auth/company/home");
+      }
+    }
+
+    // alert(JSON.stringify(e));
   };
   return (
     <div className="flex items-center justify-center w-full min-h-screen py-40">

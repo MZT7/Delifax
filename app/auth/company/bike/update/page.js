@@ -26,7 +26,7 @@ const Update = () => {
             onSubmit={handleSubmit(onsubmit)}
           >
             <div className="flex flex-col space-y-5">
-              <h2 className="font-semibold text-fax-blue">Bike information</h2>
+              <h2 className="font-semibold text-primary">Bike information</h2>
               <div className="">
                 <Label className="">Bike Name</Label>
 
@@ -57,7 +57,7 @@ const Update = () => {
             </div>
 
             <div className="flex flex-col space-y-5">
-              <h2 className="font-semibold text-fax-blue">
+              <h2 className="font-semibold text-primary">
                 Key Specs of Honda CBR
               </h2>
               <div className="">
@@ -116,9 +116,7 @@ const Update = () => {
             </div>
 
             <div className="flex flex-col space-y-5">
-              <h2 className="font-semibold text-fax-blue">
-                Rider’s Informaton
-              </h2>
+              <h2 className="font-semibold text-primary">Rider’s Informaton</h2>
               <div className="">
                 <Label className="">Full Name</Label>
 

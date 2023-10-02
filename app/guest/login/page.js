@@ -5,18 +5,19 @@ import { useForm } from "react-hook-form";
 import Company from "../../../components/Login/Company";
 import User from "../../../components/Login/User";
 import Link from "next/link";
-import { useAuth } from "@/globalStore/store";
+// import { useAuth } from "@/reduxStore/store";
 import { useRouter } from "next/navigation";
 import Alert from "@/components/Ads/alert";
+import { onLogin } from "@/router/api/auth";
 // import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const [user, setUser] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const { login, auth, setAuth } = useAuth();
-  const [data, setData] = useState({});
+  // const { login, auth, setAuth } = useAuth();
+  // const [data, setData] = useState({});
   const router = useRouter();
 
   const {
@@ -26,11 +27,11 @@ const Login = () => {
   } = useForm();
 
   // useEffect(() => {
-  //   toast({ type: "info", message: "Hello world!" });
-  // }, []);
+  //   setError(error);
+  // }, [error]);
 
   useEffect(() => {
-    setError("");
+    setError("error");
   }, []);
 
   //  const handleFile = (e) => {
@@ -46,41 +47,14 @@ const Login = () => {
   //  };
 
   const onsubmit = async (e) => {
-    // console.log(e);
-    if (e.email_address && e.password) {
-      try {
-        const response = await fetch("https://dummyjson.com/auth/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            username: "kminchell",
-            password: "0lelplR",
-            // expiresInMins: 60, // optional
-          }),
-        });
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
+    console.log(e);
 
-        const jsonData = await response.json();
-
-        setAuth(jsonData);
+    if (Object.keys(e).length !== 0) {
+      const response = await onLogin(e);
+      console.log("res", response);
+      if (response.ok) {
         router.push("auth/company/home");
-      } catch (err) {
-        // console.error("Error fetching data:", err.message);
-        if (err.message == 400) {
-          setError("Missing Username or Password");
-          Alert(error, "error");
-          console.log("error", error);
-        } else if (err.message == 401) {
-          setError("Unauthorized");
-          Alert(error, "error");
-        } else {
-          setError("Network error");
-          Alert(error, "error");
-        }
       }
-      // console.log("error", error);
     }
   };
 

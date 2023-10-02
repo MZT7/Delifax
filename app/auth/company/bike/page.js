@@ -69,7 +69,7 @@ const Bike = () => {
                 />
 
                 <h3 className="text-[#7099C9] text-xs ">{title}</h3>
-                <span className="text-xs font-semibold text-fax-blue">
+                <span className="text-xs font-semibold text-primary">
                   {value}
                 </span>
               </div>
@@ -81,16 +81,16 @@ const Bike = () => {
             Rider&rsquo;s Information
           </h1>
           <div className="w-full mt-3 bg-white shadow-xl">
-            <h1 className="w-full p-3 text-sm font-semibold text-fax-blue">
+            <h1 className="w-full p-3 text-sm font-semibold text-primary">
               Name: <span className="ml-3 font-normal">Ayomide Johnson</span>
             </h1>
-            <h1 className="w-full p-3 text-sm font-semibold text-fax-blue">
+            <h1 className="w-full p-3 text-sm font-semibold text-primary">
               Address:{" "}
               <span className="ml-3 font-normal">
                 20, Abraham Adesanya Street
               </span>
             </h1>
-            <h1 className="w-full p-3 text-sm font-semibold text-fax-blue">
+            <h1 className="w-full p-3 text-sm font-semibold text-primary">
               Phone #: <span className="ml-3 font-normal">08012345678</span>
             </h1>
           </div>

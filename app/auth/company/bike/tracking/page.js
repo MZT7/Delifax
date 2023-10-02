@@ -43,7 +43,7 @@ const Tracking = () => {
             Track
           </button>
         </div>
-        <div className="flex flex-col gap-y-3 p-3 shadow-lg bg-[#fff] text-fax-blue">
+        <div className="flex flex-col gap-y-3 p-3 shadow-lg bg-[#fff] text-primary">
           {Tracker.map(({ header, description, time }, index) => (
             <div
               key={index}
@@ -75,7 +75,7 @@ const Tracking = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col justify-start text-fax-blue">
+                <div className="flex flex-col justify-start text-primary">
                   <h1 className="text-sm font-semibold ">{header}</h1>
                   <p className="w-2/3 text-xs">{description}</p>
                 </div>
@@ -108,7 +108,7 @@ const Tracking = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col justify-start text-fax-blue">
+              <div className="flex flex-col justify-start text-primary">
                 <h1 className="text-sm font-semibold ">Delivery Booked</h1>
                 <p className="w-2/3 text-xs">
                   Tue, 7 Mar 2023- 01.25pm Ajah Market, Ajah Lagos
@@ -119,7 +119,7 @@ const Tracking = () => {
             <h1 className="inline-flex items-center font-semibold">01:25 pm</h1>
           </div> */}
         </div>
-        <div className="flex flex-col p-3 shadow-lg gap-y-3 bg-[#EDF5FF] w-full text-fax-blue">
+        <div className="flex flex-col p-3 shadow-lg gap-y-3 bg-[#EDF5FF] w-full text-primary">
           <div className="flex items-start w-full gap-x-3 ">
             <Image
               src={Timer}

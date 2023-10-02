@@ -25,17 +25,17 @@ const Dropdown = ({ items, title }) => {
 
         {/* <div className="absolute flex flex-col items-start px-2 pr-2 bg-white shadow-lg pl- top-10">
         <Link href={"qwee/aee"}>
-          <h1 className="text-sm text-fax-blue">MEZU</h1>
+          <h1 className="text-sm text-primary">MEZU</h1>
         </Link>
       </div> */}
         {drop && (
           <div
-            className="absolute flex flex-col items-start px-2 pr-2 transition-all bg-white shadow-lg top-10"
+            className="absolute flex flex-col items-start px-2 pr-2 space-y-1 transition-all bg-white rounded-sm shadow-lg top-10 "
             onMouseLeave={() => setDrop(false)}
           >
             {items.map((item, index) => (
               <Link href={item.link} key={index}>
-                <h1 className="text-sm text-fax-blue">{item.name}</h1>
+                <h1 className="text-sm text-primary">{item.name}</h1>
               </Link>
             ))}
           </div>

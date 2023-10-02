@@ -17,8 +17,11 @@ module.exports = {
       },
       colors: {
         "regal-blue": "rgba(112, 153, 201, 0.25)",
-        "fax-blue": "#0657B5",
+        primary: "#0657B5",
         "fax-white": "#F9FCFF",
+        secondary: "#032B5A",
+        text: "#7099C9",
+        box: "#EDF5FF",
       },
     },
   },
