@@ -29,7 +29,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex space-x-4 ">
-            <Link href={`guest/register`}>
+            <Link href={`/auth/company/home`}>
               <button className="font-bold text-base rounded-sm bg-[#0657B5] text-white py-3 px-16">
                 Get Started
               </button>
