@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { useRouter } from "next/navigation";
 import Alert from "@/components/Ads/alert";
+import jwt_decode from "jwt-decode";
 
 export async function onLogin(e) {
   try {
@@ -43,22 +44,28 @@ export async function onRegister(formData) {
       "https://dev-backend-service.azurewebsites.net/company/auth/create-company",
       {
         method: "POST",
+        mode: "no-cors",
         headers: {
-          // "Content-Type": "application/json",
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
+          // "Content-Type": "multipart/form-data",
         },
         body: formData,
       }
     );
-    //  console.log("response", response);
-    if (!response.ok) {
+    // const data = response.json();
+    // const jsonData = await response.json();
+    console.log("response", response);
+    if (response.ok !== false) {
       throw new Error(response.status);
     }
     Alert("Registration Successful", "success");
     const jsonData = await response.json();
+    console.log("jsonData", jsonData);
     // localStorage.setItem("token", res.data.token);
     localStorage.setItem("userData", JSON.stringify(jsonData));
+    return response;
   } catch (err) {
+    // console.log("err", err);
     if (err.message == 400) {
       Alert("Missing Username or Password", "error");
     } else if (err.message == 401) {

@@ -31,7 +31,8 @@ const Register = () => {
   const handleFile = (e) => {
     const name = e.target.id;
     const value = e.target.value;
-    const file = e.target.files[0];
+    // const file = e.target.files[0];
+    const file = e.currentTarget.files[0];
     setImgName((prev) => {
       return { ...prev, [name]: file.name };
     });
@@ -45,19 +46,22 @@ const Register = () => {
       const formData = new FormData();
       formData.append("CompanyName", e.company_name);
       formData.append("CompanyAddress", e.company_address);
+      formData.append("Email", e.email_address);
+      formData.append("Password", e.password);
       formData.append("OwnerName", e.name);
       formData.append("OwnerPhone", e.phone_number);
-      formData.append("IdVerification", e.id_verification);
-      formData.append("CACDocument", e.cac_document);
+      formData.append("IdVerification", e.id_verification[0]);
+      formData.append("CACDocument", e.cac_document[0]);
       formData.append("Agreement", e.policy);
 
       // console.log(Object.fromEntries(formData));
-      // console.log(e);
-      const response = onRegister(formData);
-      console.log("res", response);
-      if (response.ok) {
-        router.push("auth/company/home");
-      }
+      console.log(e);
+      const response = await onRegister(formData);
+      const dad = JSON.stringify(response);
+      console.log("res", dad);
+      // if (response.ok) {
+      //   router.push("auth/company/home");
+      // }
     }
 
     // alert(JSON.stringify(e));
@@ -68,7 +72,7 @@ const Register = () => {
         <h1 className="font-bold">Register</h1>
         <h4>
           Create your account, already have an account?
-          <Link className="font-bold text-[#0657B5]" href={`guest/login`}>
+          <Link className="font-bold text-[#0657B5]" href={`/guest/login`}>
             Log in here
           </Link>
         </h4>

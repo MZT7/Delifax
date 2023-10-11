@@ -65,7 +65,7 @@ const Bike = () => {
                   // height={500}
                   alt="Picture of the author"
                   // priority={true}
-                  placeholder="logo"
+                  // placeholder="logo"
                 />
 
                 <h3 className="text-[#7099C9] text-xs ">{title}</h3>

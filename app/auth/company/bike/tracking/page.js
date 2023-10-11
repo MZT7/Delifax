@@ -57,7 +57,7 @@ const Tracking = () => {
                     // height={500}
                     alt="Picture of the author"
                     // priority={true}
-                    placeholder="logo"
+                    // placeholder="logo"
                   />
 
                   <div
@@ -71,7 +71,8 @@ const Tracking = () => {
                       // height={5}
                       alt="Picture of the author"
                       // priority={true}
-                      placeholder="logo"
+                      // placeholder="logo"
+                      // placeholder="logo"
                     />
                   </div>
                 </div>
@@ -94,7 +95,7 @@ const Tracking = () => {
                   // height={500}
                   alt="Picture of the author"
                   // priority={true}
-                  placeholder="logo"
+                // placeholder="logo"
                 />
 
                 <div className="inline-flex justify-center w-full">
@@ -104,7 +105,7 @@ const Tracking = () => {
                     // height={5}
                     alt="Picture of the author"
                     // priority={true}
-                    placeholder="logo"
+                  // placeholder="logo"
                   />
                 </div>
               </div>
@@ -127,7 +128,7 @@ const Tracking = () => {
               // height={500}
               alt="Picture of the author"
               // priority={true}
-              placeholder="logo"
+              // placeholder="logo"
             />
             <div className="flex flex-col">
               <h1 className="text-xs">Delivery Time </h1>
@@ -141,7 +142,7 @@ const Tracking = () => {
               // height={500}
               alt="Picture of the author"
               // priority={true}
-              placeholder="logo"
+              // placeholder="logo"
             />
             <div className="flex flex-col">
               <h1 className="text-xs">Drop-off Address </h1>

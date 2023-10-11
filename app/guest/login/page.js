@@ -64,7 +64,7 @@ const Login = () => {
         <h1 className="font-bold">Login</h1>
         <h4>
           You are welcome back, don’t have an account?
-          <Link className="font-bold text-[#0657B5]" href={"guest/register"}>
+          <Link className="font-bold text-[#0657B5]" href={"/guest/register"}>
             Register here
           </Link>{" "}
         </h4>

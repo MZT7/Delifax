@@ -111,7 +111,7 @@ const Company = ({
               height={0}
               className="object-contain w-5"
               alt="id"
-              placeholder="logo"
+              // placeholder="logo"
             />
 
             <h1>{imgName?.verification || "ID VERIFICATION"}</h1>
@@ -123,7 +123,7 @@ const Company = ({
             height={0}
             className="object-contain w-2"
             alt="i"
-            placeholder="log"
+            // placeholder="log"
           />
         </Label>
 
@@ -157,7 +157,7 @@ const Company = ({
               height={0}
               className="object-contain w-5"
               alt="id"
-              placeholder="logo"
+              // placeholder="logo"
             />
 
             <h1>{imgName?.cac || "CAC Document"}</h1>
@@ -169,7 +169,7 @@ const Company = ({
             height={0}
             className="object-contain w-2"
             alt="i"
-            placeholder="log"
+            // placeholder="log"
           />
         </Label>
 

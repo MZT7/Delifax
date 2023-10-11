@@ -35,16 +35,16 @@ const Header = () => {
                 // height={500}
                 alt="Picture of the author"
                 priority={true}
-                placeholder="logo"
+                // placeholder="logo"
               />
             </Link>
           </div>
           {auth ? (
             <div className="flex gap-x-5 text-[#032B5A] ">
-              <Link href={`auth/company/home`}>
+              <Link href={`/auth/company/home`}>
                 <h1 className="font-semibold ">Home</h1>
               </Link>
-              <Link href={`guest/login`}>
+              <Link href={`/guest/login`}>
                 <h1 className="font-semibold ">Our Services</h1>
               </Link>
               <Dropdown title="Account" items={Links} />

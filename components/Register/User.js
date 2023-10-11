@@ -118,7 +118,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
               height={0}
               className="object-contain w-5"
               alt="id"
-              placeholder="logo"
+            // placeholder="logo"
             />
 
             <h1>{imgName?.verification || "ID VERIFICATION"}</h1>
@@ -164,7 +164,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
               height={0}
               className="object-contain w-5"
               alt="id"
-              placeholder="logo"
+            // placeholder="logo"
             />
 
             <h1>{imgName?.cac || "CAC Document"}</h1>

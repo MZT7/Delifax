@@ -69,7 +69,7 @@ const footer = () => {
                   width={0}
                   height={0}
                   alt="apple"
-                  placeholder="apple"
+                  // placeholder="logo"
                   className="object-fill w-48 h-full"
                 />
                 <Image
@@ -77,7 +77,7 @@ const footer = () => {
                   width={0}
                   height={0}
                   alt="google"
-                  placeholder="google"
+                  // placeholder="logo"
                   className="object-fill w-48 h-full"
                 />
               </div>

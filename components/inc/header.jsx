@@ -19,18 +19,18 @@ const Header = () => {
                 // height={500}
                 alt="Picture of the author"
                 priority={true}
-                placeholder="logo"
+                // placeholder="logo"
               />
             </Link>
           </div>
           {route == "guest/login" ? (
-            <Link href={`guest/register`}>
+            <Link href={`/guest/register`}>
               <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
                 Register
               </h1>
             </Link>
           ) : (
-            <Link href={`guest/login`}>
+            <Link href={`/guest/login`}>
               <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
                 Login
               </h1>

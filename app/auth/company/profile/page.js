@@ -57,7 +57,7 @@ const Profile = () => {
                 alt="edit icon"
                 className="cursor-pointer "
                 // priority={true}
-                placeholder="logo"
+                // placeholder="logo"
                 onClick={() => setModal(true)}
               />
             </div>

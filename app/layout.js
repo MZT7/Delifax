@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <ReduxProvider>
       <html lang="en">
-        <body className={"font-[Montserrat]"} suppressHydrationWarning={true}>
+        <body className={"font-[Montserrat]"}>
           <Toast>
             <main> {children}</main>
           </Toast>
