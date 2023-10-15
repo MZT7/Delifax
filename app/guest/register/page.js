@@ -59,9 +59,9 @@ const Register = () => {
       const response = await onRegister(formData);
       const dad = JSON.stringify(response);
       console.log("res", dad);
-      // if (response.ok) {
-      //   router.push("auth/company/home");
-      // }
+      if (response.companyId) {
+        router.push("/auth/company/home");
+      }
     }
 
     // alert(JSON.stringify(e));

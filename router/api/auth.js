@@ -4,27 +4,32 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Alert from "@/components/Ads/alert";
 import jwt_decode from "jwt-decode";
+// import axios from "axios";
 
 export async function onLogin(e) {
   try {
-    const response = await fetch("https://dummyjson.com/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: "kminchelle",
-        password: "0lelplR",
-        // expiresInMins: 60, // optional
-      }),
-    });
+    const response = await fetch(
+      "https://dev-backend-service.azurewebsites.net/company/auth/sign-in",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: e.email_address,
+          password: e.password,
+          // expiresInMins: 60, // optional
+        }),
+      }
+    );
     if (!response.ok) {
       throw new Error(response.status);
     }
     Alert("Login Successful", "success");
     const jsonData = await response.json();
+    const userData = jwt_decode(jsonData.token); //
     // localStorage.setItem("token", res.data.token);
-    localStorage.setItem("userData", JSON.stringify(jsonData));
+    localStorage.setItem("userData", JSON.stringify(userData));
 
-    return response;
+    return userData;
   } catch (err) {
     if (err.message == 400) {
       Alert("Missing Username or Password", "error");
@@ -44,26 +49,26 @@ export async function onRegister(formData) {
       "https://dev-backend-service.azurewebsites.net/company/auth/create-company",
       {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-          // "Content-Type": "multipart/form-data",
-        },
+        // mode: "no-cors",
+        // headers: {
+        //   // "Content-Type": "application/json",
+        //   // "Content-Type": "multipart/form-data",
+        //   // "Content-Type": "application/x-www-form-urlencoded",
+        // },
         body: formData,
       }
     );
-    // const data = response.json();
-    // const jsonData = await response.json();
+
     console.log("response", response);
-    if (response.ok !== false) {
+    if (!response.ok) {
       throw new Error(response.status);
     }
     Alert("Registration Successful", "success");
     const jsonData = await response.json();
-    console.log("jsonData", jsonData);
+    // console.log("jsonData", jsonData);
     // localStorage.setItem("token", res.data.token);
     localStorage.setItem("userData", JSON.stringify(jsonData));
-    return response;
+    return jsonData;
   } catch (err) {
     // console.log("err", err);
     if (err.message == 400) {

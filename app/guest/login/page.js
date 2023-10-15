@@ -52,8 +52,8 @@ const Login = () => {
     if (Object.keys(e).length !== 0) {
       const response = await onLogin(e);
       console.log("res", response);
-      if (response.ok) {
-        router.push("auth/company/home");
+      if (response.CompanyId) {
+        router.push("/auth/company/home");
       }
     }
   };

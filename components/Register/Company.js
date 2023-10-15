@@ -90,12 +90,18 @@ const Company = ({
 
         <Input
           className=""
-          type="password"
           placeholder="Owner&#39;s Phone Number"
-          {...register("phone_number", { required: true })}
+          {...register("phone_number", {
+            required: "required",
+            // pattern: {
+            //   value: /^(\+?\d{1,5})?(\d{9,10})$/,
+            //   message: "invalid number",
+            // },
+          })}
+          type="tel"
         />
         {errors.phone_number && (
-          <span className="text-red-500">This field is required</span>
+          <span className="text-red-500">{errors.phone_number.message}</span>
         )}
       </div>
       <div className="">
