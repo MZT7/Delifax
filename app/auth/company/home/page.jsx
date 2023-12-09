@@ -4,7 +4,10 @@ import Image from "next/image";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import bike from "../../../../components/images/bikeD.png";
+import trackB from "../../../../components/images/trackB.svg";
+import infoB from "../../../../components/images/infoB.svg";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const Home = () => {
   const userData = useSelector((state) => state?.auth?.user);
@@ -15,25 +18,29 @@ const Home = () => {
       src: bike,
       description: "How many number of bikes are available ",
       color: "bg-[#EDF5FF]",
+      link: "/auth/company/allBikes",
     },
     {
       title: "Update Bike Information",
-      src: bike,
+      src: infoB,
       description: "Provide information about your Bikes, Type, Model ETC",
       color: "bg-[#F1EDFF]",
+      link: "/auth/company/bike/update",
     },
     {
       title: "Bike Resumption Location",
-      src: bike,
+      src: trackB,
       description:
         "Where your Bike resumes so we can give you frequent orders in that location to start your day.",
       color: "bg-[#EEFFED]",
+      link: "/auth/company/bike/resumption",
     },
     {
       title: "Track Riders",
-      src: bike,
+      src: trackB,
       description: "See the current location of your Bike (s).",
       color: "bg-[#FFEDF7]",
+      link: "/auth/company/bike/tracking",
     },
   ];
   return (
@@ -42,21 +49,27 @@ const Home = () => {
         Good Morning,{userData?.UserName}
       </h1>
       <div className="grid w-full grid-cols-2 tracking-wider gap-x-5 gap-y-10">
-        {details?.map(({ title, src, description, color }, index) => {
+        {details?.map(({ title, src, description, color, link }, index) => {
           return (
-            <div
-              key={index}
-              className={`flex flex-col py-6 px-10 space-y-5 border-2 border-regal-blue ${color}`}
-            >
-              <Image src={src} width={30} alt="bike" />
-              <h1 className="text-[#0657B5] font-semibold text-lg ">{title}</h1>
-              <p className="font-normal text-sm text-[#7099C9]">
-                {description}
-              </p>
-              <i className="self-end ">
-                <FiArrowRight className="mt-10 text-2xl text-[#0657B5]" />
-              </i>
-            </div>
+            <>
+              <Link href={link}>
+                <div
+                  key={index}
+                  className={`flex flex-col py-6 px-10 h-full space-y-5 border-2 border-regal-blue ${color}`}
+                >
+                  <Image src={src} width={30} alt="bike" />
+                  <h1 className="text-[#0657B5] font-semibold text-lg ">
+                    {title}
+                  </h1>
+                  <p className="font-normal text-sm text-[#7099C9]">
+                    {description}
+                  </p>
+                  <i className="self-end ">
+                    <FiArrowRight className="mt-10 text-2xl text-[#0657B5]" />
+                  </i>
+                </div>
+              </Link>
+            </>
           );
         })}
       </div>

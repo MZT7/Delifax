@@ -1,43 +1,51 @@
-import React from "react";
-import Label from "../../components/Ads/Label";
-import Input from "../../components/Ads/Input";
+import React, { useState } from "react";
+import Label from "../Ads/Label";
+import Input from "../Ads/Input";
 import Image from "next/image";
 import identity from "../../components/images/ID.png";
 import Aright from "../../components/images/arrowright.png";
 
-const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
+const Company = ({
+  register,
+  errors,
+  handleFile,
+  handleSubmit,
+  imgName,
+  onsubmit,
+}) => {
+  //   const [imgName, setImgName] = useState(null);
   return (
     <form
       className="flex flex-col font-normal transition-all space-y-7"
       onSubmit={handleSubmit(onsubmit)}
     >
       <div className="">
-        <Label>First Name</Label>
+        <Label>Company Name</Label>
 
         <Input
           className=""
           type="text"
-          placeholder="First Name"
-          {...register("first_name", { required: true })}
+          placeholder="Company Name"
+          {...register("company_name", { required: true })}
         />
-        {errors.first_name && (
+        {errors.company_name && (
           <span className="text-red-500">This field is required</span>
         )}
       </div>
       <div className="">
-        <Label>Last Name</Label>
+        <Label>Company Address</Label>
 
         <Input
           className=""
           type="text"
-          placeholder="Last Name"
-          {...register("last_name", { required: true })}
+          placeholder="Company Address"
+          {...register("company_address", { required: true })}
         />
-        {errors.last_name && (
+        {errors.company_address && (
           <span className="text-red-500">This field is required</span>
         )}
       </div>
-      {/* <div className="">
+      <div className="">
         <Label>Owner&#39;s Name </Label>
 
         <Input
@@ -49,7 +57,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
         {errors.name && (
           <span className="text-red-500">This field is required</span>
         )}
-      </div> */}
+      </div>
       <div className="">
         <Label>Email Address</Label>
 
@@ -64,21 +72,6 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
           <span className="text-red-500">This field is required</span>
         )}
       </div>
-
-      <div className="">
-        <Label>Phone Number</Label>
-
-        <Input
-          className=""
-          type="text"
-          placeholder="Phone Number"
-          {...register("phone_number", { required: true })}
-        />
-        {errors.phone_number && (
-          <span className="text-red-500">This field is required</span>
-        )}
-      </div>
-
       <div className="">
         <Label>Password</Label>
 
@@ -93,19 +86,25 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
         )}
       </div>
       <div className="">
-        <Label>Confirm Password</Label>
+        <Label>Owner&#39;s Phone Number</Label>
 
         <Input
           className=""
-          type="password"
-          placeholder="Confirm Password"
-          {...register("confirm_password", { required: true })}
+          placeholder="Owner&#39;s Phone Number"
+          {...register("phone_number", {
+            required: "required",
+            // pattern: {
+            //   value: /^(\+?\d{1,5})?(\d{9,10})$/,
+            //   message: "invalid number",
+            // },
+          })}
+          type="tel"
         />
-        {errors.confirm_password && (
-          <span className="text-red-500">This field is required</span>
+        {errors.phone_number && (
+          <span className="text-red-500">{errors.phone_number.message}</span>
         )}
       </div>
-      {/* <div className="">
+      <div className="">
         <h1>ID Verification</h1>
         <Label
           for="verification"
@@ -118,7 +117,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
               height={0}
               className="object-contain w-5"
               alt="id"
-            // placeholder="logo"
+              // placeholder="logo"
             />
 
             <h1>{imgName?.verification || "ID VERIFICATION"}</h1>
@@ -130,7 +129,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
             height={0}
             className="object-contain w-2"
             alt="i"
-            placeholder="log"
+            // placeholder="log"
           />
         </Label>
 
@@ -164,7 +163,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
               height={0}
               className="object-contain w-5"
               alt="id"
-            // placeholder="logo"
+              // placeholder="logo"
             />
 
             <h1>{imgName?.cac || "CAC Document"}</h1>
@@ -176,7 +175,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
             height={0}
             className="object-contain w-2"
             alt="i"
-            placeholder="log"
+            // placeholder="log"
           />
         </Label>
 
@@ -196,7 +195,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
         {errors.cac_document && (
           <span className="text-red-500">This field is required</span>
         )}
-      </div> */}
+      </div>
 
       <div className="flex items-center justify-start w-full h-full">
         <input
@@ -207,7 +206,7 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
         />
 
         <Label for="policy">
-          I agree to Delifax Terms of Services and Privacy Policy
+          I agree to COMPANY NAME Terms of Services and Privacy Policy
         </Label>
         <br />
         {errors.policy && (
@@ -226,4 +225,4 @@ const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
   );
 };
 
-export default User;
+export default Company;

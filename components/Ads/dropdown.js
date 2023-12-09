@@ -5,6 +5,7 @@ import { BiChevronDown } from "react-icons/bi";
 import ClickAwayListener from "react-click-away-listener";
 import { useDispatch } from "react-redux";
 import { getToken, getUser } from "@/reduxStore/features/auth/authSlice";
+import { TbUser } from "react-icons/tb";
 
 const Dropdown = ({ items, title }) => {
   const [drop, setDrop] = useState(false);
@@ -41,16 +42,25 @@ const Dropdown = ({ items, title }) => {
       </div> */}
         {drop && (
           <div
-            className="absolute flex flex-col items-start px-2 pr-2 space-y-1 transition-all bg-white rounded-sm shadow-lg top-10 "
+            className="absolute left-0 right-0 flex flex-col items-start px-1 space-y-1 transition-all bg-white rounded-sm shadow-lg w-28 top-10 "
             onMouseLeave={() => setDrop(false)}
           >
             {items.map((item, index) => (
               <Link
-                href={item.link}
-                onClick={() => handleLogout(item.name)}
+                href={item?.link}
+                onClick={() => handleLogout(item?.name)}
                 key={index}
+                className={`w-full text-center `}
               >
-                <h1 className="text-sm text-primary">{item.name}</h1>
+                <h1
+                  className={`inline-flex items-center justify-start w-full text-sm gap-x-1 ${
+                    item?.name === "LogOut" ? "text-red-500" : "text-primary"
+                  }`}
+                >
+                  {item?.icon}
+
+                  {item?.name}
+                </h1>
               </Link>
             ))}
           </div>

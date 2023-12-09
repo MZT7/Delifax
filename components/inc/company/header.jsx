@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { BiChevronDown } from "react-icons/bi";
 import Dropdown from "@/components/Ads/dropdown";
 import { useDispatch, useSelector } from "react-redux";
+import { TbUser } from "react-icons/tb";
+import { MdOutlineLogout } from "react-icons/md";
 // import { getUser } from "@/reduxStore/features/auth/authSlice";
 
 const Header = () => {
@@ -19,11 +21,14 @@ const Header = () => {
   const Links = [
     {
       name: "Profile",
-      link: "guest/login",
+      link: "/auth/company/profile",
+      icon: <TbUser />,
     },
     {
       name: "LogOut",
       link: "",
+      icon: <MdOutlineLogout />,
+      // color:'text-red-500'
     },
   ];
 
@@ -48,7 +53,7 @@ const Header = () => {
               <Link href={`/auth/company/home`}>
                 <h1 className="font-semibold ">Home</h1>
               </Link>
-              <Link href={`/guest/login`}>
+              <Link href={`/ourServices`}>
                 <h1 className="font-semibold ">Our Services</h1>
               </Link>
               <Dropdown title="Account" items={Links} />

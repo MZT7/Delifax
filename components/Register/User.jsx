@@ -1,51 +1,43 @@
-import React, { useState } from "react";
-import Label from "../../components/Ads/Label";
-import Input from "../../components/Ads/Input";
+import React from "react";
+import Label from "../Ads/Label";
+import Input from "../Ads/Input";
 import Image from "next/image";
 import identity from "../../components/images/ID.png";
 import Aright from "../../components/images/arrowright.png";
 
-const Company = ({
-  register,
-  errors,
-  handleFile,
-  handleSubmit,
-  imgName,
-  onsubmit,
-}) => {
-  //   const [imgName, setImgName] = useState(null);
+const User = ({ register, errors, handleFile, handleSubmit, onsubmit }) => {
   return (
     <form
       className="flex flex-col font-normal transition-all space-y-7"
       onSubmit={handleSubmit(onsubmit)}
     >
       <div className="">
-        <Label>Company Name</Label>
+        <Label>First Name</Label>
 
         <Input
           className=""
           type="text"
-          placeholder="Company Name"
-          {...register("company_name", { required: true })}
+          placeholder="First Name"
+          {...register("first_name", { required: true })}
         />
-        {errors.company_name && (
+        {errors.first_name && (
           <span className="text-red-500">This field is required</span>
         )}
       </div>
       <div className="">
-        <Label>Company Address</Label>
+        <Label>Last Name</Label>
 
         <Input
           className=""
           type="text"
-          placeholder="Company Address"
-          {...register("company_address", { required: true })}
+          placeholder="Last Name"
+          {...register("last_name", { required: true })}
         />
-        {errors.company_address && (
+        {errors.last_name && (
           <span className="text-red-500">This field is required</span>
         )}
       </div>
-      <div className="">
+      {/* <div className="">
         <Label>Owner&#39;s Name </Label>
 
         <Input
@@ -57,7 +49,7 @@ const Company = ({
         {errors.name && (
           <span className="text-red-500">This field is required</span>
         )}
-      </div>
+      </div> */}
       <div className="">
         <Label>Email Address</Label>
 
@@ -72,6 +64,21 @@ const Company = ({
           <span className="text-red-500">This field is required</span>
         )}
       </div>
+
+      <div className="">
+        <Label>Phone Number</Label>
+
+        <Input
+          className=""
+          type="text"
+          placeholder="Phone Number"
+          {...register("phone_number", { required: true })}
+        />
+        {errors.phone_number && (
+          <span className="text-red-500">This field is required</span>
+        )}
+      </div>
+
       <div className="">
         <Label>Password</Label>
 
@@ -86,25 +93,19 @@ const Company = ({
         )}
       </div>
       <div className="">
-        <Label>Owner&#39;s Phone Number</Label>
+        <Label>Confirm Password</Label>
 
         <Input
           className=""
-          placeholder="Owner&#39;s Phone Number"
-          {...register("phone_number", {
-            required: "required",
-            // pattern: {
-            //   value: /^(\+?\d{1,5})?(\d{9,10})$/,
-            //   message: "invalid number",
-            // },
-          })}
-          type="tel"
+          type="password"
+          placeholder="Confirm Password"
+          {...register("confirm_password", { required: true })}
         />
-        {errors.phone_number && (
-          <span className="text-red-500">{errors.phone_number.message}</span>
+        {errors.confirm_password && (
+          <span className="text-red-500">This field is required</span>
         )}
       </div>
-      <div className="">
+      {/* <div className="">
         <h1>ID Verification</h1>
         <Label
           for="verification"
@@ -117,7 +118,7 @@ const Company = ({
               height={0}
               className="object-contain w-5"
               alt="id"
-              // placeholder="logo"
+            // placeholder="logo"
             />
 
             <h1>{imgName?.verification || "ID VERIFICATION"}</h1>
@@ -129,7 +130,7 @@ const Company = ({
             height={0}
             className="object-contain w-2"
             alt="i"
-            // placeholder="log"
+            placeholder="log"
           />
         </Label>
 
@@ -163,7 +164,7 @@ const Company = ({
               height={0}
               className="object-contain w-5"
               alt="id"
-              // placeholder="logo"
+            // placeholder="logo"
             />
 
             <h1>{imgName?.cac || "CAC Document"}</h1>
@@ -175,7 +176,7 @@ const Company = ({
             height={0}
             className="object-contain w-2"
             alt="i"
-            // placeholder="log"
+            placeholder="log"
           />
         </Label>
 
@@ -195,7 +196,7 @@ const Company = ({
         {errors.cac_document && (
           <span className="text-red-500">This field is required</span>
         )}
-      </div>
+      </div> */}
 
       <div className="flex items-center justify-start w-full h-full">
         <input
@@ -206,7 +207,7 @@ const Company = ({
         />
 
         <Label for="policy">
-          I agree to COMPANY NAME Terms of Services and Privacy Policy
+          I agree to Delifax Terms of Services and Privacy Policy
         </Label>
         <br />
         {errors.policy && (
@@ -225,4 +226,4 @@ const Company = ({
   );
 };
 
-export default Company;
+export default User;

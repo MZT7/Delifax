@@ -1,19 +1,20 @@
-import React from "react";
-import Label from "../../components/Ads/Label";
-import Input from "../../components/Ads/Input";
+import React, { useState } from "react";
+import Label from "../Ads/Label";
+import Input from "../Ads/Input";
 import Image from "next/image";
 import identity from "../../components/images/ID.png";
 import Aright from "../../components/images/arrowright.png";
 import Link from "next/link";
 
-const User = ({ register, errors, handleSubmit, onsubmit }) => {
+const Company = ({ register, errors, handleSubmit, onsubmit }) => {
+  //   const [imgName, setImgName] = useState(null);
   return (
     <form
       className="flex flex-col font-normal transition-all space-y-7"
       onSubmit={handleSubmit(onsubmit)}
     >
       <div className="">
-        <Label>Email Address</Label>
+        <Label>Company Email Address</Label>
 
         <Input
           className=""
@@ -27,7 +28,7 @@ const User = ({ register, errors, handleSubmit, onsubmit }) => {
         )}
       </div>
       <div className="">
-        <Label>Password</Label>
+        <Label>Company Password</Label>
 
         <Input
           className=""
@@ -57,4 +58,4 @@ const User = ({ register, errors, handleSubmit, onsubmit }) => {
   );
 };
 
-export default User;
+export default Company;
