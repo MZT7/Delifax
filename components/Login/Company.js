@@ -42,7 +42,7 @@ const Company = ({ register, errors, handleSubmit, onsubmit }) => {
       </div>
 
       <Link
-        href={"guest/forgot-password"}
+        href={"/guest/forgot-password"}
         className="self-end text-[#0657B5] text-sm"
       >
         Forgot Password?

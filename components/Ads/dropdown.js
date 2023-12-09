@@ -3,13 +3,24 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import ClickAwayListener from "react-click-away-listener";
+import { useDispatch } from "react-redux";
+import { getToken, getUser } from "@/reduxStore/features/auth/authSlice";
 
 const Dropdown = ({ items, title }) => {
   const [drop, setDrop] = useState(false);
+  const dispatch = useDispatch();
 
   // console.log(items);
   const show = () => {
     setDrop(!drop);
+  };
+  const handleLogout = (name) => {
+    if (name === "LogOut") {
+      console.log("yes");
+      // localStorage.clear();
+      dispatch(getUser(null));
+      dispatch(getToken(null));
+    }
   };
   return (
     <ClickAwayListener onClickAway={() => setDrop(false)}>
@@ -34,7 +45,11 @@ const Dropdown = ({ items, title }) => {
             onMouseLeave={() => setDrop(false)}
           >
             {items.map((item, index) => (
-              <Link href={item.link} key={index}>
+              <Link
+                href={item.link}
+                onClick={() => handleLogout(item.name)}
+                key={index}
+              >
                 <h1 className="text-sm text-primary">{item.name}</h1>
               </Link>
             ))}

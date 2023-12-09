@@ -6,9 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BiChevronDown } from "react-icons/bi";
 import Dropdown from "@/components/Ads/dropdown";
+import { useDispatch, useSelector } from "react-redux";
+// import { getUser } from "@/reduxStore/features/auth/authSlice";
 
 const Header = () => {
   const route = usePathname();
+  // const dispatch = useDispatch();
+  const userData = useSelector((state) => state?.auth?.user);
 
   const [auth, setAuth] = useState(true);
 
@@ -19,7 +23,7 @@ const Header = () => {
     },
     {
       name: "LogOut",
-      link: "guest/login",
+      link: "",
     },
   ];
 
@@ -39,7 +43,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          {auth ? (
+          {userData ? (
             <div className="flex gap-x-5 text-[#032B5A] ">
               <Link href={`/auth/company/home`}>
                 <h1 className="font-semibold ">Home</h1>
@@ -51,14 +55,14 @@ const Header = () => {
             </div>
           ) : (
             <div>
-              {route == "guest/login" ? (
-                <Link href={`guest/register`}>
+              {route == "/guest/login" ? (
+                <Link href={`/guest/register`}>
                   <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
                     Register
                   </h1>
                 </Link>
               ) : (
-                <Link href={`guest/login`}>
+                <Link href={`/guest/login`}>
                   <h1 className="bg-[#0657B5] text-white py-2 px-4 rounded font-bold text-base tracking-wide">
                     Login
                   </h1>

@@ -8,7 +8,17 @@ import Link from "next/link";
 // import { useAuth } from "@/reduxStore/store";
 import { useRouter } from "next/navigation";
 import Alert from "@/components/Ads/alert";
-import { onLogin } from "@/router/api/auth";
+import { OnLogin } from "@/router/api/auth";
+import { useDispatch } from "react-redux";
+import {
+  getToken,
+  getUser,
+  startLoading,
+  stopLoading,
+} from "@/reduxStore/features/auth/authSlice";
+import { useReactMutation } from "@/components/hooks/useReactQueryFn";
+import jwtDecode from "jwt-decode";
+
 // import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
@@ -16,9 +26,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  // const { login, auth, setAuth } = useAuth();
-  // const [data, setData] = useState({});
+  const { mutate, isError, isPending, isSuccess } = useReactMutation(
+    "/company/auth/sign-in",
+    "post"
+  );
+
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -26,36 +40,31 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  // useEffect(() => {
-  //   setError(error);
-  // }, [error]);
+  const onsubmit = async (data) => {
+    console.log(data);
 
-  useEffect(() => {
-    setError("error");
-  }, []);
-
-  //  const handleFile = (e) => {
-  //    const name = e.target.id;
-  //    const value = e.target.value;
-  // //    const file = e.target.files[0];
-  // //    setImgName((prev) => {
-  // //      return { ...prev, [name]: file.name };
-  // //    });
-
-  //    console.log("yeah");
-  // //    console.log(imgName);
-  //  };
-
-  const onsubmit = async (e) => {
-    console.log(e);
-
-    if (Object.keys(e).length !== 0) {
-      const response = await onLogin(e);
-      console.log("res", response);
-      if (response.CompanyId) {
-        router.push("/auth/company/home");
-      }
+    if (Object.keys(data).length === 0) {
+      return;
     }
+
+    dispatch(startLoading());
+    mutate(
+      {
+        email: data?.email_address,
+        password: data?.password,
+        // expiresInMins: 60, // optional
+      },
+      {
+        onSuccess: (resData, variables, context) => {
+          const token = resData?.data?.token;
+          const userData = jwtDecode(token);
+          dispatch(getUser(userData));
+          dispatch(getToken(token));
+          Alert("Login Successful", "success");
+          router.push("/auth/company/home");
+        },
+      }
+    );
   };
 
   return (

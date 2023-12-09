@@ -1,9 +1,27 @@
 "use client";
-import React from "react";
-import { store } from "@/reduxStore/store";
 import { Provider } from "react-redux";
+import { store, persistor } from "@/reduxStore/store";
+import { useLoadUserEffect } from "./features/auth/authSlice";
+import { useEffect, useState } from "react";
+import { PersistGate } from "redux-persist/integration/react";
+import { QueryClient, QueryClientProvider } from "react-query";
+
 const ReduxProvider = ({ children }) => {
-  return <Provider store={store}>{children}</Provider>;
+  // const onReload = useLoadUserEffect();
+  // useEffect(() => {
+  //   onReload;
+  // }, []);
+  const [queryClient] = useState(() => new QueryClient());
+
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </PersistGate>
+    </Provider>
+  );
 };
 
 export default ReduxProvider;

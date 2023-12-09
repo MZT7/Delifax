@@ -12,11 +12,22 @@ import Aright from "../../../components/images/arrowright.png";
 import Link from "next/link";
 import { onRegister } from "@/router/api/auth";
 
-const Register = () => {
-  //   const onSubmit = (e) => {};
+import { useReactMutation } from "@/components/hooks/useReactQueryFn";
+import { useDispatch } from "react-redux";
+import { startLoading } from "@/reduxStore/features/auth/authSlice";
+import Alert from "@/components/Ads/alert";
+import { useRouter } from "next/navigation";
 
+const Register = () => {
   const [imgName, setImgName] = useState(null);
   const [user, setUser] = useState(true);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const { mutate, isError, isPending, isSuccess } = useReactMutation(
+    "/company/auth/create-company",
+    "post"
+  );
 
   const {
     register,
@@ -24,45 +35,42 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  //  useEffect(() => {
-
-  //  }, []);
-
   const handleFile = (e) => {
     const name = e.target.id;
     const value = e.target.value;
     // const file = e.target.files[0];
     const file = e.currentTarget.files[0];
     setImgName((prev) => {
-      return { ...prev, [name]: file.name };
+      return { ...prev, [name]: file?.name };
     });
 
     console.log("yeah");
     console.log(imgName);
   };
 
-  const onsubmit = async (e) => {
-    if (Object.keys(e).length !== 0) {
-      const formData = new FormData();
-      formData.append("CompanyName", e.company_name);
-      formData.append("CompanyAddress", e.company_address);
-      formData.append("Email", e.email_address);
-      formData.append("Password", e.password);
-      formData.append("OwnerName", e.name);
-      formData.append("OwnerPhone", e.phone_number);
-      formData.append("IdVerification", e.id_verification[0]);
-      formData.append("CACDocument", e.cac_document[0]);
-      formData.append("Agreement", e.policy);
-
-      // console.log(Object.fromEntries(formData));
-      console.log(e);
-      const response = await onRegister(formData);
-      const dad = JSON.stringify(response);
-      console.log("res", dad);
-      if (response.companyId) {
-        router.push("/auth/company/home");
-      }
+  const onsubmit = async (data) => {
+    if (Object.keys(data).length === 0) {
+      return;
     }
+
+    const formData = new FormData();
+    formData.append("CompanyName", data.company_name);
+    formData.append("CompanyAddress", data.company_address);
+    formData.append("Email", data.email_address);
+    formData.append("Password", data.password);
+    formData.append("OwnerName", data.name);
+    formData.append("OwnerPhone", data.phone_number);
+    formData.append("IdVerification", data.id_verification[0]);
+    formData.append("CACDocument", data.cac_document[0]);
+    formData.append("Agreement", data.policy);
+
+    dispatch(startLoading());
+    mutate(formData, {
+      onSuccess: (resData, variables, context) => {
+        Alert("Registration Successful", "success");
+        router.push("/guest/login");
+      },
+    });
 
     // alert(JSON.stringify(e));
   };

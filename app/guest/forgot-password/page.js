@@ -8,16 +8,38 @@ import identity from "../../../components/images/ID.png";
 import Aright from "../../../components/images/arrowright.png";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { ForgotPass } from "@/router/api/auth";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import Alert from "@/components/Ads/alert";
+import { useReactMutation } from "@/components/hooks/useReactQueryFn";
+
 const ForgotPassword = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const { mutate, isError, isPending, isSuccess } = useReactMutation(
+    "/company/auth/forgot-password",
+    "post"
+  );
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onsubmit = (e) => {
-    console.log(e);
-    alert(JSON.stringify(e));
+  const onsubmit = (data) => {
+    if (Object.keys(data).length === 0) {
+      return;
+    }
+    console.log("data", data);
+    mutate(data, {
+      onSuccess: (resData, variables, context) => {
+        localStorage.setItem("forgotP", data.email);
+        Alert("Email sent", "success");
+        router.push("/guest/reset-password");
+      },
+    });
   };
   return (
     <div className="flex items-center justify-center w-full min-h-screen py-40">
@@ -42,10 +64,10 @@ const ForgotPassword = () => {
                 className=""
                 type="email"
                 placeholder="Email Address"
-                {...register("email_address", { required: true })}
+                {...register("email", { required: true })}
               />
 
-              {errors.email_address && (
+              {errors.email && (
                 <span className="text-red-500">This field is required</span>
               )}
             </div>
