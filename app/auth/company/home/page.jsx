@@ -12,6 +12,19 @@ import Link from "next/link";
 const Home = () => {
   const userData = useSelector((state) => state?.auth?.user);
   console.log(userData);
+  function getTimeOfDay(hour) {
+    if (hour >= 5 && hour < 12) {
+      return "Morning";
+    } else if (hour >= 12 && hour < 18) {
+      return "Afternoon";
+    } else {
+      return "Evening";
+    }
+  }
+
+  // Example usage:
+  const currentHour = new Date().getHours();
+  const timeOfDay = getTimeOfDay(currentHour);
   const details = [
     {
       title: "  Number of Available Bikes",
@@ -46,7 +59,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center min-h-screen px-10 py-40 mx-auto space-y-7 max-w-7xl font-[Montserrat]">
       <h1 className="self-start text-4xl font-bold text-black">
-        Good Morning,{userData?.UserName}
+        Good {timeOfDay}, {userData?.UserName}
       </h1>
       <div className="grid w-full grid-cols-2 tracking-wider gap-x-5 gap-y-10">
         {details?.map(({ title, src, description, color, link }, index) => {
