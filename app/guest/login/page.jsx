@@ -68,17 +68,17 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full min-h-screen py-40">
-      <div className="flex flex-col items-center w-full max-w-xl space-y-6">
-        <h1 className="font-bold">Login</h1>
+    <div className='flex items-center justify-center w-full min-h-screen py-40'>
+      <div className='flex flex-col items-center w-full max-w-xl space-y-6'>
+        <h1 className='font-bold'>Login</h1>
         <h4>
-          You are welcome back, don’t have an account?
-          <Link className="font-bold text-[#0657B5]" href={"/guest/register"}>
+          You are welcome back, don’t have an account?{" "}
+          <Link className='font-bold text-[#0657B5]' href={"/guest/register"}>
             Register here
           </Link>{" "}
         </h4>
-        <div className="flex flex-col w-full space-y-6 items">
-          <div className="flex items-center w-full text-center border border-[#0657B5] p-1">
+        <div className='flex flex-col w-full space-y-6 items'>
+          <div className='flex items-center w-full text-center border border-[#0657B5] p-1'>
             <button
               className={`w-1/2 ${
                 user ? "text-black" : "bg-[#0657B5] text-white"

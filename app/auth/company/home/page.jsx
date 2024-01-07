@@ -57,11 +57,11 @@ const Home = () => {
     },
   ];
   return (
-    <div className="flex flex-col items-center min-h-screen px-10 py-40 mx-auto space-y-7 max-w-7xl font-[Montserrat]">
-      <h1 className="self-start text-4xl font-bold text-black">
+    <div className='flex flex-col items-center min-h-screen px-10 py-40 mx-auto space-y-7 w-[90%] font-[Montserrat]'>
+      <h1 className='self-start text-4xl font-bold text-black'>
         Good {timeOfDay}, {userData?.UserName}
       </h1>
-      <div className="grid w-full grid-cols-2 tracking-wider gap-x-5 gap-y-10">
+      <div className='grid w-full grid-cols-2 tracking-wider gap-x-5 gap-y-10'>
         {details?.map(({ title, src, description, color, link }, index) => {
           return (
             <>
@@ -70,15 +70,15 @@ const Home = () => {
                   key={index}
                   className={`flex flex-col py-6 px-10 h-full space-y-5 border-2 border-regal-blue ${color}`}
                 >
-                  <Image src={src} width={30} alt="bike" />
-                  <h1 className="text-[#0657B5] font-semibold text-lg ">
+                  <Image src={src} width={30} alt='bike' />
+                  <h1 className='text-[#0657B5] font-semibold text-lg '>
                     {title}
                   </h1>
-                  <p className="font-normal text-sm text-[#7099C9]">
+                  <p className='font-normal text-sm text-[#7099C9]'>
                     {description}
                   </p>
-                  <i className="self-end ">
-                    <FiArrowRight className="mt-10 text-2xl text-[#0657B5]" />
+                  <i className='self-end '>
+                    <FiArrowRight className='mt-10 text-2xl text-[#0657B5]' />
                   </i>
                 </div>
               </Link>

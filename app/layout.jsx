@@ -33,8 +33,8 @@ export default function RootLayout({ children }) {
   // const router = useRouter();
 
   return (
-    <html lang="en">
-      <body className={"font-[Montserrat]"}>
+    <html lang='en'>
+      <body className='font-[Montserrat, Sans]'>
         <ReduxProvider>
           <Toast>
             <StyledComponentsRegistry>

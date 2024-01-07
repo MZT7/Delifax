@@ -16,7 +16,7 @@ const Dropdown = ({ items, title }) => {
     setDrop(!drop);
   };
   const handleLogout = (name) => {
-    if (name === "LogOut") {
+    if (name === "Log out") {
       console.log("yes");
       // localStorage.clear();
       dispatch(getUser(null));
@@ -26,12 +26,12 @@ const Dropdown = ({ items, title }) => {
   return (
     <ClickAwayListener onClickAway={() => setDrop(false)}>
       <div
-        className="relative"
+        className='relative'
         onClick={() => setDrop(!drop)}
         onMouseEnter={() => setDrop(true)}
       >
-        <button className="flex items-center cursor-pointer gap-x-1">
-          <h1 className="font-semibold ">{title}</h1>
+        <button className='flex items-center cursor-pointer gap-x-1'>
+          <h1 className='font-semibold '>{title}</h1>
           <BiChevronDown />
         </button>
 
@@ -42,7 +42,7 @@ const Dropdown = ({ items, title }) => {
       </div> */}
         {drop && (
           <div
-            className="absolute left-0 right-0 flex flex-col items-start px-1 space-y-1 transition-all bg-white rounded-sm shadow-lg w-28 top-10 "
+            className='absolute left-0 right-0 flex flex-col items-start px-1 space-y-1 transition-all bg-white rounded-sm shadow-lg w-28 top-10 '
             onMouseLeave={() => setDrop(false)}
           >
             {items.map((item, index) => (
@@ -54,7 +54,7 @@ const Dropdown = ({ items, title }) => {
               >
                 <h1
                   className={`inline-flex items-center justify-start w-full text-sm gap-x-1 ${
-                    item?.name === "LogOut" ? "text-red-500" : "text-primary"
+                    item?.name === "Log out" ? "text-red-500" : "text-primary"
                   }`}
                 >
                   {item?.icon}
